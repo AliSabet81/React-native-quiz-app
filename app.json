@@ -19,10 +19,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.alisabet.QuizApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f2a626ff-8f7e-4ab8-aedf-8e671dd7a5dd"
+      }
+    },
+    "owner": "alisabet"
   }
 }

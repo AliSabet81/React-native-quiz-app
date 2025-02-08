@@ -1,31 +1,45 @@
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import { View, Text, StyleSheet, SafeAreaView } from "react-native";
 
+import Card from "../components/Card";
 import QuestionCard from "../components/QuestionCard";
 import CustomButton from "../components/CustomButton";
 
-import questions from "../questions";
-const question = questions[0];
+import { useQuizContext } from "../providers/QuizProvider";
 
 const QuizScreen = () => {
+  const { question, questionIndex, onNext, score, totalQuestions } =
+    useQuizContext();
   return (
     <SafeAreaView style={styles.page}>
       <View style={styles.container}>
         {/* Header */}
         <View>
-          <Text style={styles.title}>Question 1/5</Text>
+          <Text style={styles.title}>
+            Question {questionIndex + 1}/{totalQuestions}
+          </Text>
         </View>
       </View>
 
       {/* Body */}
-      <View>
-        <QuestionCard question={question} />
-        <Text style={styles.time}>{20} sec</Text>
-      </View>
+      {question ? (
+        <View>
+          <QuestionCard question={question} />
+          <Text style={styles.time}>{20} sec</Text>
+        </View>
+      ) : (
+        <Card title="Well done">
+          <Text>
+            Correct answers: {score}/{totalQuestions}
+          </Text>
+          <Text>Best score: {10}</Text>
+        </Card>
+      )}
 
       {/* Footer */}
       <CustomButton
         title="Next"
+        onPress={onNext}
         rightIcon={
           <FontAwesome6 name="arrow-right-long" size={16} color="white" />
         }
