@@ -12,13 +12,12 @@ const QuizScreen = () => {
     useQuizContext();
   return (
     <SafeAreaView style={styles.page}>
-      <View style={styles.container}>
-        {/* Header */}
-        <View>
-          <Text style={styles.title}>
-            Question {questionIndex + 1}/{totalQuestions}
-          </Text>
-        </View>
+    <View style={styles.container}>
+      {/* Header */}
+      <View>
+        <Text style={styles.title}>
+          Question {questionIndex + 1}/{totalQuestions}
+        </Text>
       </View>
 
       {/* Body */}
@@ -44,6 +43,7 @@ const QuizScreen = () => {
           <FontAwesome6 name="arrow-right-long" size={16} color="white" />
         }
       />
+        </View>
     </SafeAreaView>
   );
 };
