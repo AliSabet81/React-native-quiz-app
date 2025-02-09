@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
+import LottieView from "lottie-react-native";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import { View, Text, StyleSheet, SafeAreaView } from "react-native";
 
@@ -45,12 +46,20 @@ const QuizScreen = () => {
             <Text style={styles.time}>{20} sec</Text>
           </View>
         ) : (
-          <Card title="Well done">
-            <Text>
-              Correct answers: {score}/{totalQuestions}
-            </Text>
-            <Text>Best score: {bestScore}</Text>
-          </Card>
+          <>
+            <LottieView
+              style={StyleSheet.absoluteFill}
+              autoPlay
+              loop={false}
+              source={require("../../assets/party.json")}
+            />
+            <Card title="Well done">
+              <Text>
+                Correct answers: {score}/{totalQuestions}
+              </Text>
+              <Text>Best score: {bestScore}</Text>
+            </Card>
+          </>
         )}
 
         {/* Footer */}

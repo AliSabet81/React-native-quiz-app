@@ -2,8 +2,8 @@ import { View } from "react-native";
 
 import { Question } from "../types";
 
-import AnswerOption from "./AnswerOption";
 import Card from "./Card";
+import AnswerOption from "./AnswerOption";
 
 type QuestionCard = {
   question: Question;
